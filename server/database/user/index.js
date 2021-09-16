@@ -29,7 +29,7 @@ UserSchema.statics.findByEmailAndPassword = async ({ password, email }) => {
   // Compare password
   const doesPasswordMatch = await bcrypt.compare(password, user.password);
 
-  if (!doesPasswordMatch) throw new Error("Password Incorrect");
+  if (!doesPasswordMatch) throw new Error("Incorrect Password");
 
   return user;
 };
