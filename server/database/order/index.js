@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const OrdeSchema = new mongoose.Schema(
+const OrderSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Types.ObjectId,
@@ -11,7 +11,7 @@ const OrdeSchema = new mongoose.Schema(
         food: { type: mongoose.Types.ObjectId, ref: "Foods" },
         quantity: { type: Number, required: true },
         paymode: { type: String, required: true },
-        status: { type: String, default: placed },
+        status: { type: String, default: "Placed" },
         paymentDetails: {
           itemTotal: { type: Number, required: true },
           promo: { type: Number, required: true },

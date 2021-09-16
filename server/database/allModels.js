@@ -1,5 +1,5 @@
 import { FoodModel } from "./food";
-import { ImageModel } from "./mage";
+import { ImageModel } from "./image";
 import { MenuModel } from "./menu";
 import { OrderModel } from "./order";
 import { RestaurantModel } from "./restaurant";
