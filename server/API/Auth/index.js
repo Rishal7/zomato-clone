@@ -44,7 +44,7 @@ Router.post("/signin", async (req, res) => {
 
 /* 
 Route       /auth/google
-desc        Signin with google
+Desc        Signin with google
 Params      none
 Access      Public
 Method      GET
@@ -61,7 +61,7 @@ Router.get(
 
 /* 
 Route       /auth/google/callback
-desc        Signin with google successful
+Desc        Signin with google successful
 Params      none
 Access      Public
 Method      GET
