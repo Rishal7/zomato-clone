@@ -60,7 +60,7 @@ Router.get(
 );
 
 /* 
-Route       /auth/google
+Route       /auth/google/callback
 desc        Signin with google successful
 Params      none
 Access      Public
