@@ -9,6 +9,8 @@ import googleAuthConfig from "./config/google.config";
 
 // Routes
 import Auth from "./API/Auth/index";
+import Restaurant from "./API/Restaurant";
+import Food from "./API/Food";
 
 // Database connection
 import ConnectDB from "./database/connection";
@@ -30,6 +32,8 @@ zomato.get("/", (req, res) => {
 });
 
 zomato.use("/auth", Auth);
+zomato.use("/restaurant", Restaurant);
+zomato.use("/food", Food);
 
 zomato.listen(4000, () =>
   ConnectDB()
