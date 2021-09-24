@@ -30,7 +30,7 @@ Router.post("/order/:_id", async (req, res) => {
 });
 
 /* 
-Route       /order/:_id
+Route       /order/new/:_id
 Desc        Add new order
 Params      _id
 Access      Public

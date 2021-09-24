@@ -46,9 +46,9 @@ Router.post("/new", async (req, res) => {
 });
 
 /* 
-Route       /review/delete
+Route       /review/delete/:id
 Desc        Delete food review/rating
-Params      none
+Params      id
 Body        none
 Access      Public
 Method      DELETE

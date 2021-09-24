@@ -30,20 +30,21 @@ Router.get("/:_id", async (req, res) => {
 });
 
 /* 
-Route       /update/:_id
+Route       /update/:userId
 Desc        Update user data
 Params      _id
 body        user data
 Access      Public
 Method      PUT
 */
-Router.put("/update/:_id", async (req, res) => {
+Router.put("/update/:_userId", async (req, res) => {
   try {
     const { userId } = req.params;
+
     const { userData } = req.body;
 
     const updateUserData = await UserModel.findByIdAndUpdate(
-      userIid,
+      userId,
       { $set: userData },
       { new: true }
     );
