@@ -4,17 +4,25 @@ import express from "express";
 // Database model
 import { RestaurantModel } from "../../database/allModels";
 
+// Validation
+import {
+  ValidateRestaurantCity,
+  ValidateRestaurantSearchString,
+} from "../../validation/restaurant";
+import { ValidateRestaurantId } from "../../validation/food";
+
 const Router = express.Router();
 
 /* 
 Route       /restaurant
-Desc        Get all the restaurnt detials based on thecity name
+Desc        Get all the restaurnt details based on the city name
 Params      none
 Access      Public
 Method      GET
 */
 Router.get("/", async (req, res) => {
   try {
+    await ValidateRestaurantCity(req.query);
     const { city } = req.query;
     const restaurants = await RestaurantModel.find({ city });
 
@@ -25,14 +33,15 @@ Router.get("/", async (req, res) => {
 });
 
 /* 
-Route       /restaurant
-Desc        Get individual restaurnt detials based on id
+Route       /restaurant/:_id
+Desc        Get individual restaurnt details based on id
 Params      id
 Access      Public
 Method      GET
 */
 Router.get("/:id", async (req, res) => {
   try {
+    await ValidateRestaurantId(req.params);
     const { _id } = req.params;
 
     const restaurant = await RestaurantModel.findById(_id);
@@ -49,13 +58,14 @@ Router.get("/:id", async (req, res) => {
 
 /* 
 Route       /restaurant/search
-Desc        Get restaurnt detials based on search string
+Desc        Get restaurnt details based on search string
 Params      none
 Access      Public
 Method      GET
 */
 Router.get("/search", async (req, res) => {
   try {
+    await ValidateRestaurantSearchString(req.body);
     const { searchString } = req.body;
 
     const restaurants = await RestaurantModel.find({
